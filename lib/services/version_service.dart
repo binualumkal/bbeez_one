@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,13 +22,13 @@ class VersionService {
       // Forcing check even in debug for testing (though normally it's for production)
       final status = await newVersion.getVersionStatus();
       
-      print('Update Check: Local: ${status?.localVersion}, Store: ${status?.storeVersion}, CanUpdate: ${status?.canUpdate}');
+      debugPrint('Update Check: Local: ${status?.localVersion}, Store: ${status?.storeVersion}, CanUpdate: ${status?.canUpdate}');
 
       if (status != null && status.canUpdate) {
         await NotificationService.showUpdateNotification(status.storeVersion);
       }
     } catch (e) {
-      print('Store update check failed: $e');
+      debugPrint('Store update check failed: $e');
     }
   }
 

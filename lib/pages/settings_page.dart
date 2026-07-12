@@ -285,6 +285,7 @@ class _SettingsPageState
                 value: biometricEnabled,
 
                 onChanged: (value) async {
+                  final messenger = ScaffoldMessenger.of(context);
 
                   if (value) {
 
@@ -296,11 +297,10 @@ class _SettingsPageState
 
                       if (!mounted) return;
 
-                      ScaffoldMessenger.of(context)
-                          .showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Biometric authentication not available',
+                      messenger.showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'Biometric authentication not available',
                           ),
                         ),
                       );
@@ -316,11 +316,10 @@ class _SettingsPageState
 
                       if (!mounted) return;
 
-                      ScaffoldMessenger.of(context)
-                          .showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Authentication failed',
+                      messenger.showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'Authentication failed',
                           ),
                         ),
                       );
@@ -340,8 +339,7 @@ class _SettingsPageState
                         value;
                   });
 
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(
+                  messenger.showSnackBar(
                     SnackBar(
                       content: Text(
                         value
@@ -361,12 +359,14 @@ class _SettingsPageState
                 title: "Privacy Screen",
                 value: privacyScreenEnabled,
                 onChanged: (value) async {
+                  final messenger = ScaffoldMessenger.of(context);
                   await DatabaseService.setPrivacyScreenEnabled(value);
                   await SecurityService.setSecure(value);
+                  if (!mounted) return;
                   setState(() {
                     privacyScreenEnabled = value;
                   });
-                  ScaffoldMessenger.of(context).showSnackBar(
+                  messenger.showSnackBar(
                     SnackBar(
                       content: Text(
                         value ? 'Privacy Screen Enabled' : 'Privacy Screen Disabled',

@@ -756,9 +756,15 @@ ${fields.map(
   Widget build(
       BuildContext context,
       ) {
-    return WillPopScope(
-      onWillPop:
-      confirmDiscard,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop) return;
+        final shouldPop = await confirmDiscard();
+        if (shouldPop && context.mounted) {
+          Navigator.pop(context);
+        }
+      },
 
       child: Scaffold(
         resizeToAvoidBottomInset: true,

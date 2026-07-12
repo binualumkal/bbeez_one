@@ -1,0 +1,44 @@
+# BBeez One v1.0.5 - Google Play Release Notes
+
+## What's New
+
+**🎉 iOS Compatibility & Versioning Improvements**
+
+This release focuses on cross-platform compatibility and improving how versioning is managed and displayed.
+
+### Key Improvements
+
+✨ **iOS Backup Recognition**
+- Fixed issue where backup files were not detectable on iPhone
+- Improved file picking logic for more reliable data restoration
+
+📦 **Files App Integration**
+- Added support for the iOS "Files" app (On My iPhone > BBeez One)
+- Manage and share your backups directly from your device storage
+
+🔄 **Dynamic Versioning**
+- Synchronized version display across About, Support, and FAQ pages
+- The app now automatically reflects its current build status
+
+⚡ **Performance & Stability**
+- Optimized file handling for large backup files
+- General bug fixes and performance improvements
+
+### What to Know
+
+- All existing functionality is preserved
+- Your data remains secure with the same encryption standards
+- You can now see and manage backups in the system file explorer
+
+### Bug Fixes & Stability
+
+- Fixed extension filtering issues on certain iOS versions
+- Improved UI consistency for version information
+- Enhanced reliability of the restore process
+
+---
+
+**Version:** 1.0.5 (Build 9)
+**Requires:** Android 5.0+ / iOS 12.0+
+
+💡 **Tip:** Go to Data Management > Backup to ensure your latest records are safely stored!
